@@ -1,20 +1,13 @@
 {
-  "name": "dooring",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "root",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "create": "node packages/zhu-cli/bin/vue.js create hello30"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wsmjz/dooring.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/wsmjz/dooring/issues"
-  },
-  "homepage": "https://github.com/wsmjz/dooring#readme"
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
 }

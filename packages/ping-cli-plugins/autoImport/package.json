@@ -1,0 +1,40 @@
+{
+  "_from": "vue-cli-plugin-vue-next-libs",
+  "_id": "vue-cli-plugin-vue-next-libs@0.0.2",
+  "_inBundle": false,
+  "_integrity": "sha512-brMEXwArGik8I6kZeWLMJFSS3IJHcf7oCvrTrnUyFihYoqiMhAs5GXTT86kPq94VMej2GiyeXCXPMHNaaDKCCA==",
+  "_location": "/vue-cli-plugin-vue-next-libs",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "vue-cli-plugin-vue-next-libs",
+    "name": "vue-cli-plugin-vue-next-libs",
+    "escapedName": "vue-cli-plugin-vue-next-libs",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/vue-cli-plugin-vue-next-libs/-/vue-cli-plugin-vue-next-libs-0.0.2.tgz",
+  "_shasum": "e009b2b28c981ce208f7f5a4cbe465f3291042e0",
+  "_spec": "vue-cli-plugin-vue-next-libs",
+  "_where": "F:\\A-github优秀项目",
+  "author": {
+    "name": "madao"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "vue3 cli",
+  "keywords": [
+    "vue3",
+    "cli"
+  ],
+  "license": "ISC",
+  "main": "index.js",
+  "name": "vue-cli-plugin-vue-next-libs",
+  "version": "0.0.2"
+}
