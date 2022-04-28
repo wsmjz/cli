@@ -1,14 +1,30 @@
 {
-  "name": "ping-cli",
-  "version": "1.0.0",
+  "name": "@ping-home/sailfish-cli",
+  "version": "0.0.2",
   "description": "苹果家生态脚手架",
-  "author": "1025658085",
+  "author": "1025658085@qq.com",
   "homepage": "",
   "license": "ISC",
+  "scripts": {
+    "docs:build": "vitepress build docs"
+  },
   "main": "lib/ping.js",
   "bin": {
-    "ping-cli": "bin/ping.js"
+    "ping-cli": "bin/ping.js",
+    "sailfish-cli": "bin/ping.js",
+    "psf": "bin/ping.js",
+    "sw": "bin/ping.js"
   },
+  "keywords": [
+    "vue",
+    "react",
+    "cli",
+    "sailfish",
+    "shouwang",
+    "ping-home",
+    "admin",
+    "ping-home-admin-cli"
+  ],
   "gitHead": "359d338997d8ebcb0e3fd1df903a06f90211537d",
   "dependencies": {
     "chalk": "^4.1.1",

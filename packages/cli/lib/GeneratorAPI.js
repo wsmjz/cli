@@ -21,7 +21,6 @@ class GeneratorAPI{
         this.generator = generator;
         this.options = options;
         this.rootOptions = rootOptions;
-        debugger
         this.pluginsData = generator.plugins
         .filter(({id})=>id!=='@vue/cli-service')
         .map(({id})=>({name:toShortPluginId(id)}))

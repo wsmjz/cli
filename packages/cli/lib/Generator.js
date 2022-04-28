@@ -4,6 +4,8 @@ let GeneratorAPI = require('./GeneratorAPI');
 let normalizeFilePaths = require('./util/normalizeFilePaths'); 
 let writeFileTree = require('./util/writeFileTree');
 let  ejs = require('ejs');
+
+// 每个插件决定要生成的东西！！！
 class Generator{
     /**
      * 

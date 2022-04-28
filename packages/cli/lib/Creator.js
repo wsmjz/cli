@@ -28,7 +28,7 @@ class Creator {
 	async create() {
 		const { name, context } = this;//name要创建的项目名 context所在
 		let preset = await this.promptAndResolvePreset();
-		console.log(preset);//{plugins:{},vueVersion:'3'}
+		// console.log(preset);//{plugins:{},vueVersion:'3'}
 		preset = cloneDeep(preset);
 		//@vue/cli-service是核心包，里面自带webpack配置，以及build serve等命令
 		//vue/cli-service非常特殊，它的选项也被称为项目的选项，或者说根选 rootOptions
@@ -48,11 +48,11 @@ class Creator {
 		await writeFileTree(context, {
 			'package.json': JSON.stringify(pkg, null, 2)
 		});
-		console.log(`🗃  Initializing git repository...`)
+		console.log(`🗃  初始化 拉取git仓库模板...`)
 		await this.run('git init');//初始化git仓库
-		console.log(`⚙\u{fe0f} Installing CLI plugins. This might take a while...`)
+		console.log(`⚙依赖包自动安装中，可能需要一段时间，请稍后。。。`)
 		await this.run('npm install');//安装依赖的模块
-		console.log(`🚀  Invoking generators...`)//调用生成器
+		console.log(`🚀  开始调用生成器...`)//调用生成器
 		const plugins = await this.resolvePlugins(preset.plugins);
 		console.log(plugins);//[{id,apply,options}]
 		const generator = new Generator(context, { pkg, plugins });
