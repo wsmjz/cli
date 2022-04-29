@@ -1,6 +1,6 @@
 
 
-let {toShortPluginId} = require('zhu-cli-shared-utils');
+let {toShortPluginId} = require('@vue/cli-shared-utils');
 const fs = require('fs');
 const ejs = require('ejs');
 const path = require('path');

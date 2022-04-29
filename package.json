@@ -1,11 +1,25 @@
 {
-  "name": "root",
+  "name": "@ping-home/sailfish-cli",
+  "version": "1.0.0",
+  "description": "苹果家生态脚手架",
+  "author": "1025658085@qq.com",
+  "homepage": "",
+  "license": "ISC",
   "private": true,
   "scripts": {
-    "create": "node packages/zhu-cli/bin/vue.js create hello30"
+    "docs:build": "vitepress build docs"
   },
   "workspaces": [
     "packages/*"
+  ],
+  "keywords": [
+    "vue",
+    "react",
+    "cli",
+    "sailfish",
+    "shouwang",
+    "ping-home",
+    "admin"
   ],
   "devDependencies": {
     "lerna": "^4.0.0"

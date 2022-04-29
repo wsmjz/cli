@@ -1,5 +1,5 @@
 
-let {isPlugin} = require('zhu-cli-shared-utils')
+let {isPlugin} = require('@vue/cli-shared-utils')
 let GeneratorAPI = require('./GeneratorAPI');
 let normalizeFilePaths = require('./util/normalizeFilePaths'); 
 let writeFileTree = require('./util/writeFileTree');

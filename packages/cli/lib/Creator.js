@@ -4,7 +4,7 @@ let { defaults } = require('./options');
 let PromptModuleAPI = require('./PromptModuleAPI');
 let writeFileTree = require('./util/writeFileTree');
 let cloneDeep = require('lodash.clonedeep');
-let { chalk, execa, loadModule } = require('zhu-cli-shared-utils');
+let { chalk, execa, loadModule } = require('@vue/cli-shared-utils');
 let Generator = require('./Generator');
 const isManualMode = answers => answers.preset === '__manual__';
 class Creator {

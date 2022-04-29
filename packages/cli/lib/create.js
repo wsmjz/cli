@@ -2,7 +2,7 @@
 let path = require('path');
 let  {getPromptModules} = require('./util/createTools') ;
 let Creator= require('./Creator');
-let {chalk, execa,loadModule} = require('zhu-cli-shared-utils');
+let {chalk, execa,loadModule} = require('@vue/cli-shared-utils');
 
 async function create(projectName){
   let cwd = process.cwd();//获取 当前的工作目录 
