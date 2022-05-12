@@ -26,14 +26,14 @@ class Generator{
         this.rootOptions = cliService?cliService.options:{};//cliService的配置对象就是preset,也就是根配置
     }
     async generate(){
-        console.log('开始真正生成文件和配置了');
+        // console.log('开始真正生成文件和配置了');
         await this.initPlugins();//初始化插件，修改fileMiddlewares和pkg
         this.extractConfigFiles();//提取package.json里的配置文件到单独的文件里去
         await this.resolveFiles();
         this.sortPkg();
         //更新package.json文件，天加新的依赖或者命令
         this.files['package.json'] = JSON.stringify(this.pkg,null,2);
-        console.log('安装额外的依赖模块 npm install');// npm install
+        // console.log('安装额外的依赖模块 npm install');// npm install
         //安装额外的依赖模块 npm install
         await writeFileTree(this.context,this.files);
     }
@@ -44,7 +44,7 @@ class Generator{
         ].some(id=>id===_id);
     }
     sortPkg(){
-        console.log('对依赖包进行排序');
+        // console.log('对依赖包进行排序');
     }
     //真正执行中间件
     async resolveFiles(){
@@ -54,7 +54,7 @@ class Generator{
         normalizeFilePaths(this.files);
     }
     extractConfigFiles(){
-        console.log('提取package.json里的配置文件到单独的文件里去');
+        // console.log('提取package.json里的配置文件到单独的文件里去');
     }
     async initPlugins(){
         let {rootOptions} = this;

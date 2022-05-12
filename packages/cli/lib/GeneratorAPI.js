@@ -61,7 +61,7 @@ class GeneratorAPI{
                 const data = this._resolveData(additionalData);
                 let globby = require('globby');
                 let _files = await globby(['**/*'],{cwd:source});
-                console.log('_files',_files);
+                // console.log('_files',_files);
                 for(const rawPath of _files){
                     const targetPath = rawPath.split('/').map(field=>{
                         if(field.charAt(0)=='_'){//_gitignore -> .gitignore
@@ -88,7 +88,6 @@ class GeneratorAPI{
     }
 }
 function renderFile(name,data){
-    debugger
     if(isBinaryFileSync(name)){
         return fs.readFileSync(name);
     }

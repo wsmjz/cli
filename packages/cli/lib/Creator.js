@@ -7,6 +7,7 @@ let cloneDeep = require('lodash.clonedeep');
 let { chalk, execa, loadModule } = require('@vue/cli-shared-utils');
 let Generator = require('./Generator');
 const isManualMode = answers => answers.preset === '__manual__';
+let answersType = '' // 标识类型仓库
 class Creator {
 	constructor(name, context, promptModules) {
 		this.name = name;
@@ -32,8 +33,12 @@ class Creator {
 		preset = cloneDeep(preset);
 		//@vue/cli-service是核心包，里面自带webpack配置，以及build serve等命令
 		//vue/cli-service非常特殊，它的选项也被称为项目的选项，或者说根选 rootOptions
-		preset.plugins['@vue/cli-service'] = Object.assign({ projectName: name }, preset);
-		console.log(`✨  Creating project in ${chalk.yellow(context)}.`);
+		if(answersType == 'vue2-console') {
+			preset.plugins['@vue/cli-service'] = Object.assign({ projectName: name }, preset);
+		} else {
+			preset.plugins['@ping-home/sailfish-cli-plugin-land'] = Object.assign({ projectName: name }, preset);
+		}
+		console.log(`Creating project in ${chalk.yellow(context)}.`);
 		const pkg = {//将要生成的项目的package.json的内容
 			name,
 			version: '0.1.0',
@@ -48,13 +53,14 @@ class Creator {
 		await writeFileTree(context, {
 			'package.json': JSON.stringify(pkg, null, 2)
 		});
-		console.log(`🗃  初始化 拉取git仓库模板...`)
-		await this.run('git init');//初始化git仓库
-		console.log(`⚙依赖包自动安装中，可能需要一段时间，请稍后。。。`)
-		await this.run('npm install');//安装依赖的模块
-		console.log(`🚀  开始调用生成器...`)//调用生成器
+		// console.log(`初始化 拉取git仓库模板...`)
+		// await this.run('git init');//初始化git仓库
+		// console.log(`依赖包自动安装中，可能需要一段时间，请稍后。。。`)
+		// await this.run('npm install');//安装依赖的模块
+		// console.log(`开始调用生成器...`)//调用生成器
+		console.log(`项目生成中，请稍后...`)
 		const plugins = await this.resolvePlugins(preset.plugins);
-		console.log(plugins);//[{id,apply,options}]
+		// console.log(plugins);//[{id,apply,options}]
 		const generator = new Generator(context, { pkg, plugins });
 		await generator.generate();//生成代码
 	}
@@ -85,6 +91,7 @@ class Creator {
 			this.featurePrompt,//再让你选特性  feature
 			...this.injectedPrompts,//不同的promptModule插入的选项
 		]
+		
 		return prompts;
 	}
 	async promptAndResolvePreset() {
@@ -99,6 +106,7 @@ class Creator {
 			answers.features = answers.features || [];
 			this.promptCompleteCbs.forEach(cb => cb(answers, preset));
 		}
+		answersType = answers.preset
 		return preset;
 	}
 	getPresets() {
@@ -118,17 +126,16 @@ class Creator {
 				value: name
 			}
 		})
-		//presetChoices=[{name:'Default',value:'default'},{name:'Default (Vue 3)'，value:'__default_vue_3__'}]
 		const presetPrompt = {
 			name: 'preset',//弹出项的名称 preset
 			type: 'list',//如何选择 列表
 			message: `请选择一个预设:`,//请选择一个预设
 			choices: [
 				...presetChoices,
-				{
-					name: '自定义配置',//手工选择特性
-					value: '__manual__'
-				}
+				// {
+				// 	name: '自定义配置',//手工选择特性
+				// 	value: '__manual__'
+				// }
 			]
 		}
 		const featurePrompt = {

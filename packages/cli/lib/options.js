@@ -22,10 +22,11 @@ exports.defaultPresetOfReact = {
 }
 
 exports.defaults = {
-    'default': Object.assign({ vueVersion: '2' }, exports.defaultPreset),//vue2
-    '__default_vue_3__': Object.assign({ vueVersion: '3' }, exports.defaultPreset),
-    '中后台-react': Object.assign({ applyType: 'console' }, exports.defaultPresetOfReact),
+    'react-console': Object.assign({ applyType: 'react-console' }, exports.defaultPresetOfReact),
+    'vue2-console': Object.assign({ vueVersion: 'vue2-console' }, exports.defaultPreset),//vue2
+    'vue3-console': Object.assign({ vueVersion: 'vue2-console' }, exports.defaultPreset),
     'H5-响应式官网': Object.assign({ applyType: 'H5' }, exports.defaultPresetOfReact),
     '小程序': Object.assign({ applyType: 'xcx' }, exports.defaultPresetOfReact),
-    '桌面应用': Object.assign({ applyType: 'cro' }, exports.defaultPresetOfReact)
+    '跨端应用': Object.assign({ applyType: 'taro' }, exports.defaultPresetOfReact),
+    '桌面应用': Object.assign({ applyType: 'electron' }, exports.defaultPresetOfReact)
 }

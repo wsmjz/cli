@@ -1,9 +1,8 @@
 {
   "name": "@ping-home/sailfish-cli",
-  "version": "0.0.4",
+  "version": "1.0.3",
   "description": "苹果家生态脚手架",
   "author": "1025658085@qq.com",
-  "homepage": "",
   "license": "ISC",
   "scripts": {
     "docs:build": "vitepress build docs"
@@ -25,7 +24,6 @@
     "admin",
     "ping-home-admin-cli"
   ],
-  "gitHead": "359d338997d8ebcb0e3fd1df903a06f90211537d",
   "dependencies": {
     "@vue/cli-shared-utils": "^5.0.4",
     "chalk": "^4.1.1",
